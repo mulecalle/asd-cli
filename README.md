@@ -11,9 +11,7 @@ Run the binary with the command `notes` get all the available domains:
 ```bash
 > asd notes
 DOMAIN
-aws
-docker
-...
+example
 ```
 
 ### Get notes in domain
@@ -21,13 +19,12 @@ docker
 Run the `notes` command using `-d` to specify the name of the domain:
 
 ```bash
-> asd notes -d docker
-dangling:
-    - docker volume rm $(docker volume ls -qf dangling=true)
-harbor-login:
-    - docker login -u {} -p {} artifacts.msap.io
-logs:
-    - docker logs [OPTIONS] CONTAINER
+> asd notes -d example
+hello:
+    - world
+foo:
+    - bar1
+    - bar1
 ```
 
 ### Get a note in domain
@@ -35,8 +32,8 @@ logs:
 Run the `notes` command using `-d` to specify the name of the domain, and `-n` the name of the note:
 
 ```bash
-> asd notes -d docker -n dangling
-- docker volume rm $(docker volume ls -qf dangling=true)
+> asd notes -d example -n hello
+    - world
 ```
 
 ## Domains and Notes lifecycle
