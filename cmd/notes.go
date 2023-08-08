@@ -1,10 +1,10 @@
 package cmd
 
 import (
+	"asd-cli/utils"
 	"embed"
 	"fmt"
 	"github.com/spf13/cobra"
-	"notes-cli/utils"
 	"strings"
 )
 
