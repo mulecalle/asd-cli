@@ -5,7 +5,7 @@ default: build
 .PHONY: build
 build: clean
 	@echo "Building binary ..."
-	@go build -o $(APP_NAME) .
+	@docker build --output=. --target=binary .
 	@chmod +x $(APP_NAME)
 
 .PHONY: publish
