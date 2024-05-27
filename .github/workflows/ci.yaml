@@ -69,7 +69,7 @@ jobs:
         node-version:
           - 12
     steps:
-      - uses: phish108/autotag-action@v1.1.55
+      - uses: phish108/autotag-action@1.1.64
         with:
           release-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN}}
