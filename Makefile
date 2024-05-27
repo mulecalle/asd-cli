@@ -17,6 +17,14 @@ build: clean
 run:
 	./$(APP_NAME)
 
+.PHONY: fmt
+fmt:
+	go fmt ./...
+
+.PHONY: test
+test: fmt
+	go test ./...
+
 .PHONY: clean
 clean:
 	@echo "Removing binary from root folder ..."
