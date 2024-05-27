@@ -5,16 +5,19 @@ version: 2
 updates:
   - package-ecosystem: "gomod"
     directory: "/"
-    prefix: "[golang] "
+    commit-message:
+      prefix: "[golang] "
     schedule:
       interval: "weekly"
   - package-ecosystem: "github-actions"
     directory: "/"
-    prefix: "[gh-actions] "
+    commit-message:
+      prefix: "[gh-actions] "
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker"
     directory: "Dockerfile"
-    prefix: "[docker] "
+    commit-message:
+      prefix: "[docker] "
     schedule:
       interval: "weekly"
