@@ -1,4 +1,4 @@
-FROM golang:1.19.0-buster@sha256:ba38b423b8a7ef6524d71086c654a157561e46d36d0a2e10e8d60c8d4f0763b4 AS base
+FROM golang:1.20.5-buster@sha256:eb3f9ac805435c1b2c965d63ce460988e1000058e1f67881324746362baf9572 AS base
 
 # Set destination for COPY
 WORKDIR /app
