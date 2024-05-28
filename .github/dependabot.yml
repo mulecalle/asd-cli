@@ -16,7 +16,7 @@ updates:
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker"
-    directory: "Dockerfile"
+    directory: "/"
     commit-message:
       prefix: "[docker] "
     schedule:
