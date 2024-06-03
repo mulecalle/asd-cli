@@ -36,6 +36,15 @@ Run the `notes` command using `-d` to specify the name of the domain, and `-n` t
     - world
 ```
 
-## Domains and Notes lifecycle
+### Domains and Notes lifecycle
 
 `Domains` are represented as yaml files under the [data](./cmd/data/) folder, each entry in the yaml represents a `Note`.
+
+## Contributors
+
+Big thanks to all the people who have already contributed! (lol)
+
+
+
+[![contributors](https://contrib.rocks/image?repo=corentinth/it-tools)](https://github.com/mulecalle/asd-cli/graphs/contributors)
+
