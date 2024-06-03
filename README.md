@@ -44,7 +44,4 @@ Run the `notes` command using `-d` to specify the name of the domain, and `-n` t
 
 Big thanks to all the people who have already contributed! (lol)
 
-
-
-[![contributors](https://contrib.rocks/image?repo=corentinth/it-tools)](https://github.com/mulecalle/asd-cli/graphs/contributors)
-
+[![contributors](https://contrib.rocks/image?repo=mulecalle/asd-cli)](https://github.com/mulecalle/asd-cli/graphs/contributors)
