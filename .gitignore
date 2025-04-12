@@ -1,5 +1,8 @@
-.idea/
 cmd/data/
 
 # Binary
 asd
+
+# coverage
+coverage.html
+coverage.out

@@ -16,6 +16,7 @@ func TestRunCommands(t *testing.T) {
 		expected   string
 		entryValue string
 		setupFunc  func()
+		runFunc    func()
 	}{
 		{
 			name:     "domain_and_note_are_set",
@@ -31,6 +32,7 @@ func TestRunCommands(t *testing.T) {
 					},
 				}
 			},
+			runFunc: runCommands,
 		},
 		{
 			name:     "only_domain_is_set",
@@ -47,6 +49,46 @@ func TestRunCommands(t *testing.T) {
 					},
 				}
 			},
+			runFunc: runCommands,
+		},
+		{
+			name:     "no_domain_or_note_set",
+			expected: "DOMAIN\nk8s\n",
+			setupFunc: func() {
+				Commands = map[string]command{
+					
+					"k8s": {
+						entries: map[string]interface{}{},
+					},
+				}
+				ValidArgs = []string{"k8s"}
+			},
+			runFunc: func() {
+				utils.PrintSliceString("DOMAIN", ValidArgs)
+			},
+		},
+		{
+			name:     "invalid_domain",
+			domain:   "invalid",
+			expected: "{}\n\n",
+			setupFunc: func() {
+				Commands = map[string]command{}
+			},
+			runFunc: runCommands,
+		},
+		{
+			name:     "domain_set_invalid_note",
+			domain:   "k8s",
+			note:     "invalid",
+			expected: "null\n\n",
+			setupFunc: func() {
+				Commands = map[string]command{
+					"k8s": {
+						entries: map[string]interface{}{},
+					},
+				}
+			},
+			runFunc: runCommands,
 		},
 	}
 
@@ -58,10 +100,28 @@ func TestRunCommands(t *testing.T) {
 			note = test.note
 
 			// Run the command and capture the output
-			output := utils.CaptureOutput(runCommands)
+			output := utils.CaptureOutput(test.runFunc)
 
 			// Check the output
 			assert.Equal(t, test.expected, output)
 		})
 	}
+}
+
+func TestInitValidArgs(t *testing.T) {
+	// Test with empty Commands
+	Commands = map[string]command{}
+	ValidArgs = []string{}
+	initValidArgs()
+	assert.Empty(t, ValidArgs)
+
+	// Test with multiple Commands
+	Commands = map[string]command{
+		"k8s": {},
+		"git": {},
+		"aws": {},
+	}
+	ValidArgs = []string{}
+	initValidArgs()
+	assert.ElementsMatch(t, []string{"k8s", "git", "aws"}, ValidArgs)
 }
