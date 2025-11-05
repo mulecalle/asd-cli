@@ -11,7 +11,7 @@ build:
 .PHONY: install
  install: uninstall build
 	@echo "Copying binary to bin folder ..."
-	@sudo mv $(APP_NAME) /usr/local/bin
+	@sudo -S mv $(APP_NAME) /usr/local/bin
 
 .PHONY: run
 run:
@@ -38,6 +38,6 @@ clean-coverage:
 .PHONY: uninstall
 uninstall:
 	@echo "Removing binary from root folder ..."
-	@rm -rf ./$(APP_NAME) > /dev/null
+	@rm -rf ./$(APP_NAME) || exit 1
 	@echo "Removing binary from bin folder ..."
-	@sudo rm -rf /usr/local/bin/$(APP_NAME)
+	@sudo -S rm -rf /usr/local/bin/$(APP_NAME) || exit 1
